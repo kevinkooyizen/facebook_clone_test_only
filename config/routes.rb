@@ -1,19 +1,8 @@
 Rails.application.routes.draw do
-
-
-
-  get 'users/new'
-
-  get 'users/create'
-
-  get 'users/update'
-
-  get 'users/edit'
-
-  get 'users/destroy'
-
-  get 'users/index'
-
-  get 'users/show'
-
+  delete '/sessions' => 'sessions#destroy', as: "signout"
+  resources :sessions
+  resources :statuses 
+  resources :likes
+  resources :users
+  root 'welcome#index'
 end
